@@ -1,0 +1,61 @@
+/* Reset */
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family:Poppins,sans-serif; background:#000; color:white; overflow-x:hidden;}
+
+/* Navbar */
+.navbar{
+    position:fixed; top:0; width:100%; display:flex; justify-content:space-between; align-items:center;
+    padding:20px 60px; background:rgba(0,0,0,.7); backdrop-filter:blur(20px); z-index:1000;
+}
+.navbar .logo {font-family:Orbitron; font-size:1.8rem; color:gold;}
+.navbar ul {display:flex; gap:30px; list-style:none;}
+.navbar a {color:white; text-decoration:none; font-weight:bold; transition:.3s;}
+.navbar a:hover {color:lime;}
+
+/* Hero Section */
+.hero {
+    height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
+    background:linear-gradient(45deg, green, gold, black); background-size:400% 400%;
+    animation: bgGradient 15s ease infinite;
+    position:relative; overflow:hidden;
+    text-align:center;
+}
+
+@keyframes bgGradient {0%{background-position:0%}50%{background-position:100%}100%{background-position:0%}}
+
+.hero-title {font-family:Orbitron; font-size:4rem; text-shadow:0 0 40px gold; animation:float 3s infinite ease-in-out;}
+@keyframes float {50%{transform:translateY(-15px);}}
+.hero-sub {opacity:.8; margin-top:10px; font-size:1.2rem;}
+
+/* Smoke */
+.smoke {
+    position:absolute; width:200%; height:200%; background:url("https://i.imgur.com/L6X2F8A.png") repeat;
+    animation:smokeMove 60s linear infinite; opacity:.1;
+}
+@keyframes smokeMove {0%{transform:translateY(0);}100%{transform:translateY(-800px);}}
+
+/* Sections */
+.section{padding:120px 60px; text-align:center;}
+.section h2{font-family:Orbitron; font-size:2.5rem; margin-bottom:20px; color:gold; text-shadow:0 0 15px gold;}
+.section p{max-width:700px; margin:0 auto; opacity:.85; line-height:1.5;}
+
+/* Cards */
+.cards-section{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:50px; padding:120px 60px; perspective:1500px;
+}
+.card{
+    background:rgba(255,255,255,0.08); backdrop-filter:blur(20px); border-radius:25px;
+    padding:30px; text-align:center; transition:transform .1s, box-shadow .3s;
+    box-shadow:0 0 20px rgba(0,255,0,.4); cursor:pointer; transform-style:preserve-3d;
+}
+.card h2{font-family:Orbitron; font-size:1.5rem; color:gold; margin-bottom:10px;}
+.card p{opacity:.9;}
+
+/* Liquid Cursor */
+.cursor{
+    width:20px; height:20px; border-radius:50%;
+    position:fixed; pointer-events:none; z-index:9999;
+    background:radial-gradient(circle, yellow, red, green);
+    mix-blend-mode:screen; transition:transform .1s ease-out;
+}
